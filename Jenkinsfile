@@ -20,6 +20,7 @@ pipeline {
             steps {
                 script {
                     // Clean and build using Gradle
+                    echo 'Running build automation'
                     sh './gradlew build --no-daemon'
                 }
             }
@@ -29,7 +30,7 @@ pipeline {
             steps {
                 script {
                     // Archive the dist/trainSchedule.zip artifact
-                    archiveArtifacts artifacts: 'build/distributions/trainSchedule.zip', allowEmptyArchive: true
+                    archiveArtifacts artifacts: 'dist/trainSchedule.zip'
                 }
             }
         }
